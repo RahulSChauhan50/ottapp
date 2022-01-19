@@ -5,7 +5,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Provider as PaperProvider} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import OttContent from './assets/screens/OttContent';
+import OttContent from './assets/screens/Home/OttContent';
 
 const Tab = createBottomTabNavigator();
 

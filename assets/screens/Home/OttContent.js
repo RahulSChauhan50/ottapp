@@ -46,7 +46,7 @@ class OttContent extends Component {
         <StatusBar backgroundColor="black" />
         <View style={{width: '100%', height: 250}}>
           <Video
-            source={require('../media/videoplayback.mp4')}
+            source={require('../../media/videoplayback.mp4')}
             ref={ref => {
               this.player = ref;
             }}
