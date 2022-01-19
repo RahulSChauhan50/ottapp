@@ -6,6 +6,9 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Provider as PaperProvider} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import OttContent from './assets/screens/Home/OttContent';
+import Search from './assets/screens/Search/Search';
+import Favourites from './assets/screens/Favourites/Favourites';
+import Profile from './assets/screens/Profile/Profile';
 
 const Tab = createBottomTabNavigator();
 
@@ -22,6 +25,18 @@ function HomeScreen() {
               iconName = focused ? 'movie-open' : 'movie-open-outline';
               break;
             }
+            case 'Search': {
+              iconName = focused ? 'magnify' : 'magnify';
+              break;
+            }
+            case 'Favourites': {
+              iconName = focused ? 'heart' : 'heart-outline';
+              break;
+            }
+            case 'Profile': {
+              iconName = focused ? 'account' : 'account-outline';
+              break;
+            }
             default: {
               iconName = focused ? 'beaker' : 'beaker';
               break;
@@ -35,6 +50,9 @@ function HomeScreen() {
         inactiveTintColor: 'gray',
       })}>
       <Tab.Screen name="OttContent" component={OttContent} />
+      <Tab.Screen name="Search" component={Search} />
+      <Tab.Screen name="Favourites" component={Favourites} />
+      <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>
   );
 }
