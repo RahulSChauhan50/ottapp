@@ -1,10 +1,10 @@
-import React from 'react';
-import {View, Text, SafeAreaView} from 'react-native';
+import React, {useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Provider as PaperProvider} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import SplashScreen from 'react-native-splash-screen';
 import OttContent from './assets/screens/Home/OttContent';
 import Search from './assets/screens/Search/Search';
 import Favourites from './assets/screens/Favourites/Favourites';
@@ -60,6 +60,9 @@ function HomeScreen() {
 const Stack = createNativeStackNavigator();
 
 const App = () => {
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
   return (
     <PaperProvider>
       <NavigationContainer>
