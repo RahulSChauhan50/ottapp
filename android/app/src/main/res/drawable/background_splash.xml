@@ -10,7 +10,7 @@
     <item android:drawable="@color/transparent"/>
     <item >
         <bitmap android:src="@drawable/launch_screenlogo"
-            android:gravity="fill_horizontal"/>
+            android:gravity="center"/>
     </item>
 
 </layer-list>
