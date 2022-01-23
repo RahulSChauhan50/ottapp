@@ -9,6 +9,7 @@ import Home from './assets/screens/Home/Home';
 import Search from './assets/screens/Search/Search';
 import Favourites from './assets/screens/Favourites/Favourites';
 import Profile from './assets/screens/Profile/Profile';
+import MovieScreen from './assets/screens/MovieScreen/MovieScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -66,10 +67,15 @@ const App = () => {
   return (
     <PaperProvider>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Homescreen">
+        <Stack.Navigator initialRouteName="MovieScreen">
           <Stack.Screen
             name="Homescreen"
             component={HomeScreen}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="MovieScreen"
+            component={MovieScreen}
             options={{headerShown: false}}
           />
         </Stack.Navigator>
