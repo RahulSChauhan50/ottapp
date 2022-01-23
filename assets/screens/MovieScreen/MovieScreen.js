@@ -176,9 +176,35 @@ export class MovieScreen extends Component {
             marginEnd: 5,
             marginStart: '2%',
           }}>
+          Casts :
+        </Text>
+        <View>
+          <FlatList
+            showsHorizontalScrollIndicator={false}
+            horizontal
+            data={offer}
+            renderItem={({item, index, separators}) => (
+              <Avatar.Image
+                key={index}
+                size={55}
+                source={{uri: item.img}}
+                style={{margin: 10}}
+              />
+            )}
+            keyExtractor={(item, ind) => ind}
+          />
+        </View>
+        <Text
+          style={{
+            fontSize: moderateScale(20),
+            fontWeight: '600',
+            color: 'white',
+            marginEnd: 5,
+            marginStart: '2%',
+          }}>
           Story Line :
         </Text>
-        <View style={{marginHorizontal: '2%'}}>
+        <View style={{marginHorizontal: '2%', flex: 1}}>
           <ScrollView showsVerticalScrollIndicator={false}>
             <Text style={{color: 'white'}}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a
