@@ -51,7 +51,7 @@ const offer = [
   },
 ];
 
-class OttContent extends Component {
+class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -313,4 +313,4 @@ class OttContent extends Component {
   }
 }
 
-export default OttContent;
+export default Home;
