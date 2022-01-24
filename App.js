@@ -67,7 +67,7 @@ const App = () => {
   return (
     <PaperProvider>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="MovieScreen">
+        <Stack.Navigator initialRouteName="Homescreen">
           <Stack.Screen
             name="Homescreen"
             component={HomeScreen}

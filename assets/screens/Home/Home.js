@@ -11,7 +11,7 @@ import {
 import {Card, Avatar, List} from 'react-native-paper';
 import {scale, verticalScale, moderateScale} from 'react-native-size-matters';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import Video from 'react-native-video';
+import Carousal from './Carousal/Carousal';
 
 const offer = [
   {
@@ -58,24 +58,12 @@ class Home extends Component {
       expanded: false,
     };
   }
-  videoError = e => {
-    console.log(e);
-  };
   render() {
     return (
       <SafeAreaView style={{flex: 1, backgroundColor: '#111111'}}>
         <StatusBar backgroundColor="black" />
-        <View style={{width: '100%', height: 250}}>
-          <Video
-            source={require('../../media/videoplayback.mp4')}
-            ref={ref => {
-              this.player = ref;
-            }}
-            resizeMode="contain"
-            style={{flex: 1, backgroundColor: 'black'}}
-            onError={this.videoError}
-            controls={true}
-          />
+        <View style={{width: '100%', height: 200}}>
+          <Carousal data={offer} />
         </View>
         <View>
           <List.Accordion
