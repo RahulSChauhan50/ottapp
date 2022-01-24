@@ -85,7 +85,7 @@ class Home extends Component {
                 marginStart: '2%',
                 marginVertical: 10,
                 fontSize: moderateScale(17),
-                fontWeight: '600',
+                fontWeight: '400',
                 color: 'white',
               }}>
               Genres
@@ -96,13 +96,17 @@ class Home extends Component {
               data={offer}
               renderItem={({item, index, separators}) => (
                 <View style={{alignItems: 'center'}}>
-                  <Avatar.Image
-                    size={55}
+                  <Image
                     source={{uri: item.img}}
                     style={{
                       marginHorizontal: 10,
                       marginBottom: 2,
                       marginTop: 10,
+                      width: 60,
+                      height: 60,
+                      borderRadius: 50,
+                      borderWidth: 1,
+                      borderColor: '#d00000',
                     }}
                   />
                   <Text
@@ -132,7 +136,7 @@ class Home extends Component {
                 marginStart: '2%',
                 marginVertical: 10,
                 fontSize: moderateScale(17),
-                fontWeight: '600',
+                fontWeight: '400',
                 color: 'white',
               }}>
               Action
@@ -143,6 +147,7 @@ class Home extends Component {
               data={offer}
               renderItem={({item, index, separators}) => (
                 <Card
+                  onPress={() => this.props.navigation.navigate('MovieScreen')}
                   style={{
                     marginHorizontal: 10,
                     borderRadius: 10,
@@ -180,7 +185,7 @@ class Home extends Component {
                 marginStart: '2%',
                 marginVertical: 10,
                 fontSize: moderateScale(17),
-                fontWeight: '600',
+                fontWeight: '400',
                 color: 'white',
               }}>
               Drama
@@ -228,7 +233,7 @@ class Home extends Component {
                 marginStart: '2%',
                 marginVertical: 10,
                 fontSize: moderateScale(17),
-                fontWeight: '600',
+                fontWeight: '400',
                 color: 'white',
               }}>
               Romance

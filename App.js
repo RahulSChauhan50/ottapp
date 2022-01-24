@@ -16,7 +16,7 @@ const Tab = createBottomTabNavigator();
 function HomeScreen() {
   return (
     <Tab.Navigator
-      initialRouteName="Favourites"
+      initialRouteName="Home"
       screenOptions={({route}) => ({
         headerShown: false,
         tabBarIcon: ({focused, color, size}) => {
@@ -47,8 +47,10 @@ function HomeScreen() {
           // You can return any component that you like here!
           return <Icon name={iconName} size={size} color={color} />;
         },
-        activeTintColor: 'green',
-        inactiveTintColor: 'gray',
+        tabBarActiveTintColor: '#d00000',
+        tabBarInactiveTintColor: 'gray',
+        tabBarActiveBackgroundColor: '#111111',
+        tabBarInactiveBackgroundColor: '#111111',
       })}>
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Search" component={Search} />

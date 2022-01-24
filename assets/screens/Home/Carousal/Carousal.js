@@ -54,7 +54,7 @@ class Carousal extends Component {
                 name="checkbox-blank-circle"
                 size={moderateScale(12)}
                 style={{marginHorizontal: 8}}
-                color={'#0077b6'}
+                color={'#d00000'}
               />
             ) : (
               <Icon
