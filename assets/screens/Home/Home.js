@@ -67,7 +67,7 @@ class Home extends Component {
   }
   render() {
     return (
-      <SafeAreaView style={{flex: 1, backgroundColor: '#111111'}}>
+      <SafeAreaView style={{flex: 1, backgroundColor: 'black'}}>
         <StatusBar backgroundColor="black" />
         <ScrollView>
           <View
@@ -75,7 +75,7 @@ class Home extends Component {
               width: '100%',
               height: 200,
               paddingTop: 10,
-              backgroundColor: 'black',
+              backgroundColor: '#111111',
             }}>
             <Carousal data={offer} />
           </View>
