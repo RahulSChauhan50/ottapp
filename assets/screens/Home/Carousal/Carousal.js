@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import {Card, Avatar, List} from 'react-native-paper';
 import {scale, verticalScale, moderateScale} from 'react-native-size-matters';
-import SnapCarousal, {Pagination} from 'react-native-snap-carousel';
+import SnapCarousal from 'react-native-snap-carousel';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 class Carousal extends Component {
@@ -24,45 +24,50 @@ class Carousal extends Component {
 
   render() {
     return (
-      <SafeAreaView style={{flex: 1, backgroundColor: 'black'}}>
+      <View style={{flex: 1}}>
         <SnapCarousal
-          ref={c => {
-            this._carousel = c;
-          }}
           data={this.props.data}
           renderItem={({item, index}) => (
             <Image
               source={{uri: item.img}}
-              style={{width: '100%', height: '100%'}}
+              style={{width: '100%', height: '100%', borderRadius: 10}}
+              resizeMode="cover"
             />
           )}
           onSnapToItem={index => this.setState({activeSlide: index})}
           sliderWidth={Dimensions.get('window').width}
           itemWidth={(Dimensions.get('window').width * 70) / 100}
           keyExtractor={(item, ind) => ind}
+          firstItem={1}
         />
-        <View>
-          <Pagination
-            dotsLength={this.props.data.length}
-            activeDotIndex={this.state.activeSlide}
-            containerStyle={{backgroundColor: 'rgba(0, 0, 0, 0.75)'}}
-            dotStyle={{
-              width: 10,
-              height: 10,
-              borderRadius: 5,
-              marginHorizontal: 8,
-              backgroundColor: 'rgba(255, 255, 255, 0.92)',
-            }}
-            inactiveDotStyle={
-              {
-                // Define styles for inactive dots here
-              }
-            }
-            inactiveDotOpacity={0.4}
-            inactiveDotScale={0.6}
-          />
+        <View
+          style={{
+            height: 30,
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+          {this.props.data.map((item, ind) =>
+            this.state.activeSlide === ind ? (
+              <Icon
+                key={ind}
+                name="checkbox-blank-circle"
+                size={moderateScale(12)}
+                style={{marginHorizontal: 8}}
+                color={'#0077b6'}
+              />
+            ) : (
+              <Icon
+                key={ind}
+                name="checkbox-blank-circle"
+                size={moderateScale(8)}
+                style={{marginHorizontal: 8}}
+                color={'#adb5bd'}
+              />
+            ),
+          )}
         </View>
-      </SafeAreaView>
+      </View>
     );
   }
 }

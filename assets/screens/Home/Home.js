@@ -18,36 +18,43 @@ const offer = [
     img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsvMnPhxiHD42Q7XTcM3H-HPtN7_9cVZwFDQ&usqp=CAU',
     status: 'In review',
     id: '01',
+    genre: 'Action',
   },
   {
     img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxEze2m-ndA6l0ineIS9WRTt3NJVLsPccasA&usqp=CAU',
     status: 'Active',
     id: '02',
+    genre: 'Romance',
   },
   {
     img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5H4kG05ZRQ9ZevjoRMZr-YnJwoxd9WMQs3g&usqp=CAU',
     status: 'Pending',
     id: '03',
+    genre: 'Horror',
   },
   {
     img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxEze2m-ndA6l0ineIS9WRTt3NJVLsPccasA&usqp=CAU',
     status: 'Ongoing',
     id: '06',
+    genre: 'Thriller',
   },
   {
     img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxEze2m-ndA6l0ineIS9WRTt3NJVLsPccasA&usqp=CAU',
     status: 'Ongoing',
     id: '06',
+    genre: 'Drama',
   },
   {
     img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxEze2m-ndA6l0ineIS9WRTt3NJVLsPccasA&usqp=CAU',
     status: 'Ongoing',
     id: '06',
+    genre: 'Animation',
   },
   {
     img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxEze2m-ndA6l0ineIS9WRTt3NJVLsPccasA&usqp=CAU',
     status: 'Ongoing',
     id: '06',
+    genre: 'Comedy',
   },
 ];
 
@@ -62,82 +69,50 @@ class Home extends Component {
     return (
       <SafeAreaView style={{flex: 1, backgroundColor: '#111111'}}>
         <StatusBar backgroundColor="black" />
-        <View style={{width: '100%', height: 200}}>
-          <Carousal data={offer} />
-        </View>
-        <View>
-          <List.Accordion
-            style={{backgroundColor: '#111111'}}
-            title={'Movie Name'}
-            titleStyle={{
-              fontSize: moderateScale(20),
-              fontWeight: '600',
-              color: 'white',
-            }}
-            description={'Movie Stars, Singers and Directors'}
-            descriptionStyle={{
-              fontSize: moderateScale(10),
-              fontWeight: '500',
-              color: 'white',
-            }}
-            expanded={this.state.expanded}
-            onPress={() => this.setState({expanded: !this.state.expanded})}>
-            <Card
-              style={{
-                paddingStart: '2%',
-                paddingVertical: 10,
-                margin: 0,
-                backgroundColor: '#1F1F1F',
-                elevation: 10,
-              }}>
-              <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                <Text style={{fontSize: moderateScale(16), color: 'white'}}>
-                  Rating :{' '}
-                </Text>
-                <View style={{flexDirection: 'row'}}>
-                  <Icon name="star" size={moderateScale(20)} color={'yellow'} />
-                  <Icon name="star" size={moderateScale(20)} color={'yellow'} />
-                  <Icon name="star" size={moderateScale(20)} color={'yellow'} />
-                  <Icon name="star" size={moderateScale(20)} color={'yellow'} />
-                  <Icon name="star" size={moderateScale(20)} color={'grey'} />
-                </View>
-              </View>
-              <Text style={{color: 'white'}}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                a ornare sem. Pellentesque vel arcu ante. Nam accumsan, justo
-                eget convallis feugiat, purus nunc vehicula mi, quis ultricies
-                nunc felis ut nisl. Aenean cursus est ex, sit amet dapibus
-                lectus tincidunt sit amet. Donec auctor fringilla nulla, sit
-                amet luctus mi. Proin id sem ante. Nulla pretium lectus mi, et
-                ornare urna convallis ut. Proin ac tincidunt elit. Sed in mattis
-                urna. Morbi dapibus ligula ac augue lobortis aliquet. Aenean
-                ullamcorper, magna ut venenatis imperdiet, purus orci egestas
-                massa, eget pellentesque libero libero facilisis ex. Phasellus
-                interdum tortor sed leo bibendum sagittis. Aliquam ullamcorper
-                nec magna sit amet imperdiet. Donec eu porta risus. Proin ac
-                egestas augue. In iaculis sollicitudin sem in iaculis.
-                Vestibulum est tellus, egestas non volutpat vitae, dignissim
-                vitae nibh. Nulla finibus venenatis velit at consequat. Quisque
-                egestas tempor semper. Praesent finibus nulla orci, et
-                condimentum enim vulputate sed. Duis vitae turpis at diam luctus
-                pulvinar nec in sem.
-              </Text>
-            </Card>
-          </List.Accordion>
-        </View>
         <ScrollView>
+          <View
+            style={{
+              width: '100%',
+              height: 200,
+              paddingTop: 10,
+              backgroundColor: 'black',
+            }}>
+            <Carousal data={offer} />
+          </View>
           <View>
+            <Text
+              style={{
+                marginStart: '2%',
+                marginVertical: 10,
+                fontSize: moderateScale(17),
+                fontWeight: '600',
+                color: 'white',
+              }}>
+              Genres
+            </Text>
             <FlatList
               showsHorizontalScrollIndicator={false}
               horizontal
               data={offer}
               renderItem={({item, index, separators}) => (
-                <Avatar.Image
-                  key={index}
-                  size={55}
-                  source={{uri: item.img}}
-                  style={{margin: 10}}
-                />
+                <View style={{alignItems: 'center'}}>
+                  <Avatar.Image
+                    size={55}
+                    source={{uri: item.img}}
+                    style={{
+                      marginHorizontal: 10,
+                      marginBottom: 2,
+                      marginTop: 10,
+                    }}
+                  />
+                  <Text
+                    style={{
+                      fontSize: moderateScale(12),
+                      color: 'white',
+                    }}>
+                    {item.genre}
+                  </Text>
+                </View>
               )}
               keyExtractor={(item, ind) => ind}
             />
@@ -160,7 +135,7 @@ class Home extends Component {
                 fontWeight: '600',
                 color: 'white',
               }}>
-              Genre : Action
+              Action
             </Text>
             <FlatList
               showsHorizontalScrollIndicator={false}
@@ -208,7 +183,7 @@ class Home extends Component {
                 fontWeight: '600',
                 color: 'white',
               }}>
-              Genre : Drama
+              Drama
             </Text>
             <FlatList
               showsHorizontalScrollIndicator={false}
@@ -256,7 +231,7 @@ class Home extends Component {
                 fontWeight: '600',
                 color: 'white',
               }}>
-              Genre : Romance
+              Romance
             </Text>
             <FlatList
               showsHorizontalScrollIndicator={false}
